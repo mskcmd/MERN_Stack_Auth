@@ -1,6 +1,6 @@
 # MERN Stack Web Application
 
-<img src="/frontend/public/download.png" alt="App Preview" />
+<img src="../frontend/public/download.png" alt="App Preview" />
 
 
 This full-stack web application is built using the MERN stack (MongoDB, Express, React, Node.js). It includes features for user authentication and authorization using JWT tokens, Redux for global state management, and interactions with a preferred database.
