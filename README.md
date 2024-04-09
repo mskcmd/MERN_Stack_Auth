@@ -1,6 +1,6 @@
 # MERN Stack Web Application
 
-![App Preview](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.mangoitsolutions.com%2Fservices%2Ffull-stack-development-services-company%2Fmern-stack%2F&psig=AOvVaw36kfICTAKGzy3BCQFoZFJ_&ust=1712735899997000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOC8vN7UtIUDFQAAAAAdAAAAABAX)
+![App Preview](./frontend/public/screen.png")
 
 This full-stack web application is built using the MERN stack (MongoDB, Express, React, Node.js). It includes features for user authentication and authorization using JWT tokens, Redux for global state management, and interactions with a preferred database.
 
