@@ -1,10 +1,23 @@
 # MERN Stack Web Application
 
-This is a full-stack web application built using the MERN stack (MongoDB, Express, React, Node.js). It includes features for user authentication and authorization using JWT tokens, Redux for global state management, and interactions with a preferred database.
+![App Preview](link-to-preview-image)
+
+This full-stack web application is built using the MERN stack (MongoDB, Express, React, Node.js). It includes features for user authentication and authorization using JWT tokens, Redux for global state management, and interactions with a preferred database.
+
+## Table of Contents
+
+- [Features](#features)
+  - [User Side](#user-side)
+  - [Admin Side](#admin-side)
+- [Technologies Used](#technologies-used)
+- [Getting Started](#getting-started)
+- [Contribution](#contribution)
+- [License](#license)
 
 ## Features
 
 ### User Side
+
 1. **Login/Register:**
    - Users can log in to existing accounts or register new accounts.
 2. **Home Page:**
@@ -13,6 +26,7 @@ This is a full-stack web application built using the MERN stack (MongoDB, Expres
    - Users can view and update their profile information, including a file upload option for profile images.
 
 ### Admin Side
+
 1. **Login:**
    - Admins can log in to the admin panel to access user management features.
 2. **User Management:**
