@@ -90,7 +90,7 @@ function RegisterScreen() {
   };
 
   return (
-    <FormContainer>
+<FormContainer>
       <h1>Register</h1>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="name">

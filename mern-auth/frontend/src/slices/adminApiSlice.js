@@ -1,14 +1,14 @@
-import { apiSliceAdmin } from "./apiSliceAdmin";
-const ADMIN_URL = "/api/admin";
-export const adminApiSlice = apiSliceAdmin.injectEndpoints({
-  endpoints: (builder) => ({
-    adminLogin: builder.mutation({
-      query: (data) => ({
-        url: `${ADMIN_URL}/auth`,
-        method: "POST",
-        body: data,
+  import { apiSliceAdmin } from "./apiSliceAdmin";
+  const ADMIN_URL = "/api/admin";
+  export const adminApiSlice = apiSliceAdmin.injectEndpoints({
+    endpoints: (builder) => ({
+      adminLogin: builder.mutation({
+        query: (data) => ({
+          url: `${ADMIN_URL}/auth`,
+          method: "POST",
+          body: data,
+        }),
       }),
-    }),
     getUsers: builder.mutation({
       query: (data) => ({
         url: `${ADMIN_URL}/user-list?page=${data.page}&key=${data.key}`,

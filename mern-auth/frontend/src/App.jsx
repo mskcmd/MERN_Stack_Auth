@@ -15,7 +15,7 @@ import AdminHome from "./screens/admin/AdminHome.jsx";
 // import AdminHeader from "./components/admin/AdminHeader.jsx";
 import PrivateRouteAdmin from "./components/AdminPrivateRoute.jsx";
 import AdminAddUser from "./screens/admin/AdminAddUser.jsx";
-import AdminEditProfil from "./screens/admin/AdminEditProfile.jsx"
+import AdminEditProfil from "./screens/admin/AdminEditProfile.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -31,13 +31,14 @@ function App() {
         </Route>
       </Routes>
       <Routes>
-      
         <Route path="/admin/login" element={<AdminLogin />} />
-          <Route element={<PrivateRouteAdmin />}>
-            <Route path="/admin/dashboard"  element={<AdminHome />} />
-            <Route path="/admin/dashboard/adduser"  element={<AdminAddUser />} />
-            <Route path="/admin/dashboard/edit-user"  element={<AdminEditProfil />} />
-
+        <Route element={<PrivateRouteAdmin />}>
+          <Route path="/admin/dashboard" element={<AdminHome />} />
+          <Route path="/admin/dashboard/adduser" element={<AdminAddUser />} />
+          <Route
+            path="/admin/dashboard/edit-user"
+            element={<AdminEditProfil />}
+          />
         </Route>
       </Routes>
       <ToastContainer />

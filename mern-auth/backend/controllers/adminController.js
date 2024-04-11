@@ -3,22 +3,20 @@ import Admin from "../models/adminModel.js";
 import generateToken from "../utils/generateToken.js";
 import User from "../models/userModel.js";
 
-// @desc Auth Admin/set token
-// route POST /api/admins/auth
-// @ access Pubilc
+
 const authAdmin = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   console.log(email, password);
   const admin = await Admin.findOne({ email: email });
   if (admin && (await admin.matchPassword(password))) {
-        console.log("hai");
-        generateToken(res, admin._id);
-        res.status(201).json({
-          _id: admin._id,
-          name: admin.name,
-          email: admin.email,
-        });
-    
+    console.log("hai");
+    generateToken(res, admin._id);
+    res.status(201).json({
+      _id: admin._id,
+      name: admin.name,
+      email: admin.email,
+    });
+
   } else {
     res.status(400);
     throw new Error("invalid Email and Password");
@@ -28,14 +26,14 @@ const authAdmin = asyncHandler(async (req, res) => {
 const userList = asyncHandler(async (req, res) => {
   const { page = 1, limit = 10, key = "" } = req.query;
 
-console.log(page,key);
+  console.log(page, key);
   const users = await User.find({
     name: { $regex: new RegExp(`^${key}`, "i") },
   })
     .sort({ updatedAt: -1 })
     .skip((page - 1) * limit)
     .limit(limit)
-   
+
   const totalUser = await User.countDocuments();
   const lastPage = Math.ceil(totalUser / limit);
   res.status(200).json({
@@ -44,11 +42,6 @@ console.log(page,key);
     lastPage,
   });
 });
-
-
-// // @desc Auth user/a new user
-// // route POST /api/users/register
-// // @ access Pubilc
 
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -59,14 +52,12 @@ const registerUser = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("user Already Exist");
   }
-
   const user = await User.create({
     name,
     email,
     password,
     image,
   });
-
   if (user) {
     generateToken(res, user._id);
     res.status(201).json({
@@ -81,9 +72,7 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 });
 
-// // @desc Auth Admin/logout Admin
-// // route POST /api/Admins/logout
-// // @ access Pubilc
+
 const logoutAdmin = asyncHandler(async (req, res) => {
   res.cookie("Jwt", "", {
     httpOnly: true,
@@ -93,9 +82,7 @@ const logoutAdmin = asyncHandler(async (req, res) => {
   res.status(200).json({ message: " Admin Logged Out" });
 });
 
-// // @desc get AdminProfile
-// // route get /api/Admins/profile
-// // @ access private
+
 const getAdminProfile = asyncHandler(async (req, res) => {
   const Admin = {
     _id: req.Admin._id,
@@ -105,9 +92,6 @@ const getAdminProfile = asyncHandler(async (req, res) => {
   res.status(200).json({ Admin });
 });
 
-// // @desc Update AdminProfile
-// // route PUT /api/Admins/profile
-// // @ access private
 const updateAdminProfile = asyncHandler(async (req, res) => {
   const { _id, name, email } = req.body
   const admin = await User.findById(_id);
@@ -138,13 +122,13 @@ const updateAdminProfile = asyncHandler(async (req, res) => {
 });
 
 const deleteUser = asyncHandler(async (req, res) => {
-  const userId = req.body.id; 
-  console.log('hello',userId);
+  const userId = req.body.id;
+  console.log('hello', userId);
   try {
 
     const deletedUser = await User.findByIdAndDelete(userId);
     if (!deletedUser) {
-     
+
       res.status(404).json({ message: "User not found" });
       return;
     }
@@ -157,4 +141,4 @@ const deleteUser = asyncHandler(async (req, res) => {
 });
 
 
-export { authAdmin, registerUser,logoutAdmin, userList,deleteUser, getAdminProfile, updateAdminProfile };
+export { authAdmin, registerUser, logoutAdmin, userList, deleteUser, getAdminProfile, updateAdminProfile };

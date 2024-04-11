@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  overflow: hidden; /* Prevent scrolling */
+  /* overflow: hidden; Prevent scrolling */
 
 }
 
@@ -12,6 +12,7 @@ body {
   color: #667b99;
   min-height: 600vh;
   padding: 50px;
+
 }
 
 .admin-panel header {
